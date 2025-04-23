@@ -1,2 +1,5 @@
-torch==1.13.1
-transformers==4.30.2
+torch==2.3.0
+transformers==4.51.2
+nbimporter==0.3.4
+notebook==7.0.6
+numpy==1.26.4
