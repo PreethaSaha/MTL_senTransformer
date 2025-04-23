@@ -1,4 +1,4 @@
-# Multi-Task Sentence Transformer
+# Multi-Task Learning Sentence Transformer
 
 This repository implements a simple Multi-Task Learning (MTL) model using a Sentence Transformer backbone (BERT). It demonstrates how to:
 
@@ -51,10 +51,15 @@ Assume applying this model to a new domain-specific multi-task problem (e.g., sc
 
 
 
-### senTrans.py
-- Defines the MTL architecture
-- Contains a dummy dataset that returns sentences and random labels
-- Trains the model, prints predictions and metrics
+### task4.ipynb
+- Data: simulated batch of tokenized text + labels for Task A and Task B
+- Forward Pass: inputs pass through shared encoder, then to shared pooling and finally to two task heads
+- Loss Function: separate ```CrossEntropyLoss``` per task; combined loss = weighted sum
+- Metrics: Per-task accuracy (classification accuracy on logits)
+- Optimization: Backprop from joint loss; both heads and (optionally) encoder updated
+- Assumption: All tasks are defined over the same input text
+
+Please refer to task4.txt for the summary of training loop implementation
 
 ## Setup
 ```bash
@@ -66,10 +71,6 @@ pip install -r requirements.txt
 python senTrans.py
 ```
 
-## Notes
-- The dataset is synthetic for demonstration purposes.
-- Extend the `DummyMultiTaskDataset` with real datasets for practical use.
-- The model uses BERT-base and two linear heads.
 
 ## Output
 ### task1.ipynb
@@ -84,11 +85,13 @@ We ran inference on 5 sample sentences. The script prints for each sentence:
 
 Since no training was performed, predictions are random and not yet meaningful.
 
-### senTrans.py
-For each sentence, the model prints:
+### task4.ipynb
+For each sentence, the script prints:
 - Input sentence
 - Predicted and true labels and description for both tasks
 
 And for each epoch:
 - Loss
 - Accuracy for each task
+
+Low accuracy is expected with 5 sentences and 1 epoch. This setup is useful to test code structure, not model performance. To get meaningful accuracy, one has to use a real dataset, train for multiple epochs with proper data splits, and evaluate on validation/test data for realistic metrics.
