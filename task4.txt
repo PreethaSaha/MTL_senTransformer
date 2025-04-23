@@ -1,0 +1,21 @@
+Task 4: Training Loop Implementation – Summary
+
+Key Decisions:
+
+1. Input Handling:
+   - We used synthetic sentence samples with dummy labels for Topic Classification and Sentiment Analysis.
+   - Same input is used for both tasks, leveraging the shared transformer backbone.
+
+2. Loss Calculation:
+   - We computed separate CrossEntropy losses for each task.
+   - The total loss is the sum of both, with equal weighting.
+
+3. Metric Evaluation:
+   - We track accuracy per task.
+   - Each task head is evaluated independently.
+
+4. Flexibility:
+   - The structure allows easy extension to weighted loss functions or per-task sampling rates.
+   - This setup encourages joint learning from a shared representation while optimizing distinct task objectives.
+
+This approach is scalable to more tasks and can incorporate task-specific sampling, weighted loss, or auxiliary losses with minimal modifications.
