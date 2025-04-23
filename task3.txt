@@ -1,0 +1,15 @@
+Task 3: Training Considerations – Summary
+
+Key Decisions:
+
+1. Analyzed three training strategies:
+   - Freezing the entire model is useful only for inference and is not suitable for learning tasks.
+   - Freezing the transformer and training only the heads enables fast fine-tuning for task-specific labels while preserving pretrained knowledge.
+   - Freezing a task head allows us to adapt to a new task without degrading performance on an existing one, useful in incremental learning.
+
+2. For transfer learning, here are my recommendations with an example:
+   - Starting with a domain-relevant pretrained model (e.g., SciBERT for scientific NLP).
+   - Freezing the early transformer layers and fine-tuning the later ones + classification heads.
+   - This balances general language understanding with adaptability to new data.
+
+These strategies enable efficient, flexible model adaptation for multi-task settings across various domains.
