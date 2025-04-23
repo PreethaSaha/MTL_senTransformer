@@ -62,14 +62,43 @@ Assume applying this model to a new domain-specific multi-task problem (e.g., sc
 Please refer to task4.txt for the summary of training loop implementation
 
 ## Setup
-```bash
-pip install -r requirements.txt
-```
 
-## Running the scripts
-```bash
-python senTrans.py
-```
+To reproduce the outputs, follow these steps:
+
+1. Clone the repository
+
+<div>
+  <button class="copy-button" onclick="copyToClipboard(this.parentElement.nextElementSibling.textContent)"></button>
+  <pre><code>git clone https://github.com/PreethaSaha/MTL_senTransformer.git
+  </code></pre>
+</div>
+
+2. Navigate to the project directory
+
+<div>
+  <button class="copy-button" onclick="copyToClipboard(this.parentElement.nextElementSibling.textContent)"></button>
+  <pre><code>cd MTL_senTransformer
+  </code></pre>
+</div>
+
+3. Create and activate an environment
+
+<div>
+  <button class="copy-button" onclick="copyToClipboard(this.parentElement.nextElementSibling.textContent)"></button>
+  <pre><code>python3 -m venv venv        # Create a virtual environment named 'venv'
+source venv/bin/activate    # Activate the virtual environment
+</code></pre>
+</div>
+
+Please ensure all the notebook files are in the same directory.
+
+4. Install the required dependencies
+
+<div>
+  <button class="copy-button" onclick="copyToClipboard(this.parentElement.nextElementSibling.textContent)"></button>
+  <pre><code> pip install -r requirements.txt
+  </code></pre>
+</div>
 
 
 ## Output
