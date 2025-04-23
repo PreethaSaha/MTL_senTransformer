@@ -24,6 +24,9 @@ This repository implements a simple Multi-Task Learning (MTL) model using a Sent
 - Reused mean-pooling + normalization for embeddings
 - Multi-task Loss Handling: You can weight the losses for each task and combine them during training (not shown here since we're only outlining structure)
 
+### task3.txt
+
+
 
 ### senTrans.py
 - Defines the MTL architecture
