@@ -10,12 +10,12 @@ This repository implements a simple Multi-Task Learning (MTL) model using a Sent
 - **Task A**: Sentence classification (e.g., topic or intent)
 - **Task B**: Sentiment analysis (e.g., positive, neutral, negative)
 
-### task1.ipynb
+### task1.py
 - Backbone Model: ```distilbert-base-uncased``` is chosen for its efficiency and performance tradeoff. 
 - Pooling Strategy: Mean pooling of token embeddings is used to obtain fixed-length sentence embeddings. It averages only over non-padded tokens using the attention mask.
 - Embedding Normalization: Final embeddings are L2 normalized to make them suitable for similarity tasks.
 
-### task2.ipynb 
+### task2.py 
 - Changes made: Multi-task architecture with shared transformer encoder and two task-specific heads
 - Task-Specific Heads: Added 2 nn.Linear layers for Task A and Task B
   - Task A Head: A feedforward classification layer for sentence class (e.g., topic)
@@ -51,7 +51,7 @@ Assume applying this model to a new domain-specific multi-task problem (e.g., sc
 
 
 
-### task4.ipynb
+### task4.py
 - Data: simulated batch of tokenized text + labels for Task A and Task B
 - Forward Pass: inputs pass through shared encoder, then to shared pooling and finally to two task heads
 - Loss Function: separate ```CrossEntropyLoss``` per task; combined loss = weighted sum
@@ -102,19 +102,19 @@ Please ensure all the notebook files are in the same directory.
 
 
 ## Output
-### task1.ipynb
+### task1.py
 The script prints
 -  sentence embeddings of 768 dimensions
 -  cosine similarity between the two sentences showcasing semantic encoding
 
-### task2.ipynb
+### task2.py
 We ran inference on 5 sample sentences. The script prints for each sentence:
 - predicted label values for Task A and Task B
 - first 5 dimensions of the embeddings
 
 Since no training was performed, predictions are random and not yet meaningful.
 
-### task4.ipynb
+### task4.py
 For each sentence, the script prints:
 - Input sentence
 - Predicted and true labels and description for both tasks
